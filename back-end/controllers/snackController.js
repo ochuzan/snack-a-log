@@ -9,8 +9,14 @@ const {
   getOneSnack,
   createSnack,
 } = require("../queries/snacks.js");
-//image validation
-const isNameValid = require("../validation/snack.js");
+//image validation capitalized snacks names
+const {
+  isNameValid,
+  capitalizedFirstLetters,
+} = require("../validation/snack.js");
+//confrimHealth
+const confirmHealth = require("../confirmHealth.js");
+
 //get all snacks
 snacks.get("/", async (req, res) => {
   const snacks = await getAllSnacks();
@@ -47,13 +53,14 @@ snacks.put("/:id", async (req, res) => {
 snacks.post("/", isNameValid, async (req, res) => {
   try {
     let snack = req.body;
+    snack = { ...snack, name: capitalizedFirstLetters(snack.name) };
     if (!snack.image)
       snack = {
         ...snack,
         image: "https://dummyimage.com/400x400/6e6c6e/e9e9f5.png&text=No+Image",
       };
 
-    const createdSnack = await createSnack(req.body);
+    const createdSnack = await createSnack(snack);
     res.json({ success: true, payload: createdSnack });
   } catch (error) {
     res.redirect("/*");

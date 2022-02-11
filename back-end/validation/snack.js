@@ -4,5 +4,11 @@ const isNameValid = (req, res, next) => {
   else
     res.status(422).json({ sucess: false, payload: "Must include name field" });
 };
-
-module.exports = isNameValid;
+const capitalizedFirstLetters = (str) => {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map((el) => (el.length > 2 ? el[0].toUpperCase() + el.slice(1) : el))
+    .join(" ");
+};
+module.exports = { isNameValid, capitalizedFirstLetters };
