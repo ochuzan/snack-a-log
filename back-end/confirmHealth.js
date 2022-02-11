@@ -1,15 +1,12 @@
 const confirmHealth = (snack) => {
-  const { protein, fiber, added_sugar, is_healthy } = snack;
-  if (
-    protein === undefined ||
-    fiber === undefined ||
-    added_sugar === undefined
-  ) {
-    snack = { ...snack, is_healthy: null };
+  const { protein, fiber, added_sugar } = snack;
+  if (isNaN(protein) || isNaN(fiber) || isNaN(added_sugar)) {
+    return null;
   }
-  if (protein >= 5 && fiber >= 5 && added_sugar < 5) {
-    snack = { ...snack, is_healthy: true };
-  } else snack = { ...snack, is_healthy: false };
+  if ((protein >= 5 || fiber >= 5) && added_sugar < 5) {
+    return true;
+  }
+  return false;
 };
 
 module.exports = confirmHealth;

@@ -53,6 +53,7 @@ snacks.put("/:id", async (req, res) => {
 snacks.post("/", isNameValid, async (req, res) => {
   try {
     let snack = req.body;
+    snack = { ...snack, is_healthy: confirmHealth(snack) };
     snack = { ...snack, name: capitalizedFirstLetters(snack.name) };
     if (!snack.image)
       snack = {
