@@ -1,7 +1,8 @@
-const isImageValid = (str) => {
-  return (
-    str.substring(0, 7) === "http://" || str.substring(0, 8) === "https://"
-  );
+const isNameValid = (req, res, next) => {
+  const { name } = req.body;
+  if (name) next();
+  else
+    res.status(422).json({ sucess: false, payload: "Must include name field" });
 };
 
-module.exports = isImageValid;
+module.exports = isNameValid;
