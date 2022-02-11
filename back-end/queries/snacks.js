@@ -28,7 +28,7 @@ const deleteSnack = async(id) => {
     } catch (error) {
         return error;
     }
-}
+};
 
 const updateSnack = async(id, snack) => {
     try {
@@ -40,7 +40,7 @@ const updateSnack = async(id, snack) => {
     } catch (error) {
         return error;
     }
-}
+};
 
 const createSnack = async(song) => {
     try {
@@ -52,8 +52,12 @@ const createSnack = async(song) => {
     } catch (error) {
         return error;
     }
-}
+};
 
 module.exports = {
     getAllSnacks,
+    getOneSnack,
+    deleteSnack,
+    updateSnack,
+    createSnack
 };
