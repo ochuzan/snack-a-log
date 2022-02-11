@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 app.use("/snacks", snackController);
 
 app.get("*", (req, res) => {
-  res.status(404).send({ error: "page not found" });
+  res.status(404).send({ success: false, payload: "not found" });
 });
 
 // EXPORT
