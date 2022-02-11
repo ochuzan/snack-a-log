@@ -23,15 +23,15 @@ snacks.get("/:id", async (req, res) => {
   const { id } = req.params;
   const snack = await getOneSnack(id);
   if (snack.id) res.json({ success: true, payload: snack });
-  else res.redirect("/*");
+  else res.status(404).send({ success: false, payload: "not found" });
 });
 
 //delete a snack
 snacks.delete("/:id", async (req, res) => {
   const { id } = req.params;
   const deletedSnack = await deleteSnack(id);
-  if (deleteSnack.id) res.json({ success: true, payload: deletedSnack });
-  else res.redirect("/*");
+  if (deletedSnack.id) res.json({ success: true, payload: deletedSnack });
+  else res.status(404).send({ success: false, payload: "not found" });
 });
 
 //update a snack
