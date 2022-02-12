@@ -13,6 +13,9 @@ function SnackEditForm() {
       .then((res) => setSnack(res.data))
       .catch((e) => console.log(e));
   }, [id]);
+  const handleChange = (e) => {
+    setSnack({ ...snack, [e.target.id]: e.target.value });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -32,7 +35,7 @@ function SnackEditForm() {
         required
       />
       <hr />
-      <label htmlFor="name">Name</label>
+      <label htmlFor="image">Image</label>
       <br />
       <input
         type="text"
