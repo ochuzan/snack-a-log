@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
@@ -6,6 +6,7 @@ const API = process.env.REACT_APP_API_URL;
 function SnackEditForm() {
   const [snack, setSnack] = useState({});
   const { id } = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get(`${API}/snacks/${id}`)
@@ -14,6 +15,10 @@ function SnackEditForm() {
   }, [id]);
   const handleSubmit = (e) => {
     e.preventDefault();
+    axios
+      .put(`${API}/snacks/${id}`, snack)
+      .then(() => navigate("/snacks"))
+      .catch((e) => console.log(e));
   };
   return (
     <form onSubmit={handleSubmit}>
