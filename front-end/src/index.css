@@ -19,6 +19,7 @@ body {
 }
 .nav-bar a {
   text-decoration: none;
+  color: rgb(235, 94, 40);
 }
 main {
   width: 90%;

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 const API = process.env.REACT_APP_API_URL;
 
 function Snacks() {
@@ -15,13 +15,15 @@ function Snacks() {
     <div className="Snacks">
       {snacks.map((snack) => (
         <article>
-          <div className="snack">
-            <img src={snack.image} alt={snack.name} />
-            <span>
-              <HeartHealth />
-              <h4>{snack.name}</h4>
-            </span>
-          </div>
+          <Link to={`/snacks/${snack.id}`}>
+            <div className="snack">
+              <img src={snack.image} alt={snack.name} />
+              <span>
+                <HeartHealth />
+                <h4>{snack.name}</h4>
+              </span>
+            </div>
+          </Link>
         </article>
       ))}
     </div>

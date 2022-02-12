@@ -1,9 +1,7 @@
+import Snacks from "../Components/Snacks";
+
 function Index() {
-  return (
-    <div>
-      <Snacks />
-    </div>
-  );
+  return <Snacks />;
 }
 
 export default Index;
