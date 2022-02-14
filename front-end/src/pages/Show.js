@@ -1,3 +1,5 @@
+import SnackDetails from "../Components/SnackDetails";
+
 function Show(){
     return (
         <div>
