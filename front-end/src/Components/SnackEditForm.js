@@ -71,6 +71,7 @@ function SnackEditForm() {
         value={snack.added_sugar}
         onChange={handleChange}
       />
+      <hr />
       <input type="submit" />
     </form>
   );

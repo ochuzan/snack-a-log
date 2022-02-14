@@ -80,6 +80,7 @@ function SnackNewForm() {
           value={snack.added_sugar}
           onChange={handleChange}
         />
+        <br />
         <input type="submit" />
       </form>
     </div>
