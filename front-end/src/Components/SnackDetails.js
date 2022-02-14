@@ -40,7 +40,7 @@ function SnackDetails() {
         {<HeartHealth snackHealth={is_healthy} />}
       </aside>
       <div>
-        <h5>{name}</h5>
+        <h4>{name}</h4>
         <img src={image} alt={name} />
         <h6>Protein: {protein}</h6>
         <h6>Fiber: {fiber}</h6>
