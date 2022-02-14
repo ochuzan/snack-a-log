@@ -14,17 +14,19 @@ function Snacks() {
   }, []);
   return (
     <div className="Snacks">
-      {snacks.map((snack) => (
-        <article key={snack.id}>
-          <div className="Snack">
+      <article>
+        {snacks.map((snack) => (
+          <div key={snack.id} className="Snack">
             <img src={snack.image} alt={snack.name} />
-            <h4>
-              <HeartHealth snackHealth={snack.is_healthy} />
-              <Link to={`/snacks/${snack.id}`}>{snack.name} </Link>
-            </h4>
+            <Link to={`/snacks/${snack.id}`}>
+              <h4>{snack.name}</h4>
+              <h4>
+                <HeartHealth snackHealth={snack.is_healthy} />
+              </h4>
+            </Link>
           </div>
-        </article>
-      ))}
+        ))}
+      </article>
     </div>
   );
 }
