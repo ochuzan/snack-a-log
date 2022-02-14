@@ -2,7 +2,7 @@ function Index(){
     return (
         <div>
             <h2>Snacks</h2>
-            <Snacks />
+            {/* <Snacks /> */}
         </div>
     )
 }
