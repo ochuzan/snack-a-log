@@ -21,6 +21,25 @@ body {
   text-decoration: none;
   color: rgb(235, 94, 40);
 }
+.Snacks h4 {
+  margin: 0;
+  font-size: 1em;
+  text-align: center;
+}
+.Snacks article {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 15px;
+}
+.Snacks div {
+  width: 150px;
+  padding: 1em;
+  background-color: rgb(255, 252, 242);
+}
+.Snacks img {
+  width: 150px;
+}
 main {
   width: 90%;
   margin: auto;

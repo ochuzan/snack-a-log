@@ -10,7 +10,7 @@ function SnackEditForm() {
   useEffect(() => {
     axios
       .get(`${API}/snacks/${id}`)
-      .then((res) => setSnack(res.data))
+      .then((res) => setSnack(res.data.payload))
       .catch((e) => console.log(e));
   }, [id]);
   const handleChange = (e) => {
