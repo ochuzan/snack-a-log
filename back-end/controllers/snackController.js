@@ -43,8 +43,14 @@ snacks.delete("/:id", async (req, res) => {
 //update a snack
 snacks.put("/:id", async (req, res) => {
   const { id } = req.params;
+  let snack = req.body;
+  snack = {
+    ...snack,
+    is_healthy: confirmHealth(snack),
+    name: capitalizedFirstLetters(snack.name),
+  };
 
-  const updatedSnack = await updateSnack(id, req.body);
+  const updatedSnack = await updateSnack(id, snack);
   if (updatedSnack.id) res.json({ success: true, payload: updatedSnack });
   else res.redirect("/*");
 });
@@ -53,8 +59,12 @@ snacks.put("/:id", async (req, res) => {
 snacks.post("/", isNameValid, async (req, res) => {
   try {
     let snack = req.body;
-    snack = { ...snack, is_healthy: confirmHealth(snack) };
-    snack = { ...snack, name: capitalizedFirstLetters(snack.name) };
+    snack = {
+      ...snack,
+      is_healthy: confirmHealth(snack),
+      name: capitalizedFirstLetters(snack.name),
+    };
+
     if (!snack.image)
       snack = {
         ...snack,
